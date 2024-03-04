@@ -78,18 +78,6 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //Email validation 
-
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:employees,email',
-        ], [
-            'name.required' => 'Name is required.',
-            'email.required' => 'Email is required.',
-            'email.email' => 'Email must be a valid email address.',
-            'email.unique' => 'Email has already been taken.',
-        ]);
-
             //Getting the Employee record and updating it
 
         Employee::find($id)->update(
